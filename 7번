@@ -1,0 +1,27 @@
+#include <stdio.h>
+
+int main()
+{
+	int count = 1;
+	int answer = 1;
+
+	for (int i = 3; count != 10001; i++)
+	{
+		for (int j = 2; j < i; j++)
+		{
+			if (i % j == 0)
+			{
+				i++;
+				j = 2;
+			}
+
+			else if (i % j != 0 && i - j == 1)
+			{
+				count++;
+				answer = i;
+			}
+		}
+	}
+
+	printf("%d\n", answer);
+}
