@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <math.h>
+
+int pytha(int x, int y); //전달받은 수가 피타고라스 수인지 판별
+
+int main()
+{
+	for (int i = 1; i < 500; i++) //삼각형의 가장 긴 한 변의 길이 < 나머지 두 변의 길의의 합 이므로 500보다 작게 설정 
+	{
+		for (int j = 1; j < 500; j++)
+		{
+			if (pytha(i, j) != 0 && i + j + pytha(i, j) == 1000)
+			{
+				printf("%d^2 + %d^2 = %d^2\n", i, j, pytha(i, j));
+				printf("%d x %d x %d= %d\n", i, j, pytha(i, j), i * j * pytha(i, j));
+				return 0;
+			}
+		}
+	}
+}
+
+int pytha(int x, int y)
+{
+	float square_root = sqrt(x * x + y * y);
+
+	if (square_root - (int)(square_root) == 0) //제곱근이 정수인지 판별
+		return square_root;
+
+	else
+		return 0;
+}
