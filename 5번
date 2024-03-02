@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+int main()
+{
+	int lcm = 2, prior_i = 1;
+
+	for (int i = 3; i < 21; i++)
+	{
+		prior_i = i;
+
+		for (int j = 2; j <= i; j++)
+		{
+			if (lcm % j == 0 && i % j == 0 && lcm / j >= 1)
+			{
+				i /= j;
+				lcm /= j;
+				j--;
+			}
+		}
+
+		i = prior_i;
+		lcm *= i;
+	}
+
+	printf("%d", lcm);
+}
