@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main()
+{
+	long long int key = 600851475143;
+
+	for (int i = 2; i < key; i++)
+	{
+		if (key % i == 0)
+		{
+			key /= i;
+			i--;
+		}
+	}
+	printf("%lld", key);
+}
